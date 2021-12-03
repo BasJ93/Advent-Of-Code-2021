@@ -21,5 +21,15 @@ namespace AoC2021.Tests
 
             Assert.IsNull(solution);
         }
+
+        [Test]
+        public void GetSolutionClass_ReturnsCalss_WhenClassExists()
+        {
+            SolutionFactory f = new SolutionFactory();
+            DateTime dateTime = DateTime.Parse("2021-12-01");
+            ISolution solution = f.GetSolutionClass(dateTime);
+
+            Assert.IsInstanceOf(typeof(ISolution), solution);
+        }
     }
 }

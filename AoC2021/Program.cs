@@ -16,13 +16,11 @@ namespace AoC2021
             var factory = new SolutionFactory();
             ISolution solver = factory.GetSolutionClass(date);
 
-            var inputReader = new InputReader();
-
             if (solver != null)
             {
                 Console.WriteLine($"Running solver for Day [{date.Day}]");
 
-                var input = inputReader.ReadFromInputFile(date.Day);
+                var input = InputReader.ReadFromInputFile(date.Day);
 
                 try
                 {

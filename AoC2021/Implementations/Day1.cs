@@ -1,4 +1,4 @@
-
+using AoC2021.Helpers;
 using AoC2021.Interfaces;
 
 namespace AoC2021.Implementations
@@ -7,7 +7,7 @@ namespace AoC2021.Implementations
     {
         public long Task1(IEnumerable<string> input)
         {
-            int[] parsedInput = input.Select(i => Convert.ToInt32(i)).ToArray();
+            int[] parsedInput = input.ToInt().ToArray();
 
             int numberOfIncreases = 0;
 
@@ -25,13 +25,14 @@ namespace AoC2021.Implementations
         public long Task2(IEnumerable<string> input)
         {
             // Calculate the sliding window data
-            int[] parsedInput = input.Select(i => Convert.ToInt32(i)).ToArray();
+            int[] parsedInput = input.ToInt().ToArray();
 
             List<int> slidingWindowSums = new List<int>();
 
             for (int i = 2; i < parsedInput.Length; i++)
             {
-                var slidingWindowSum = parsedInput[i - 2] + parsedInput[i - 1] + parsedInput[i];
+                // var slidingWindowSum = parsedInput[i - 2] + parsedInput[i - 1] + parsedInput[i];
+                var slidingWindowSum = parsedInput[(i - 2)..i].Sum(); // C#8 language feature to grab a slice
                 slidingWindowSums.Add(slidingWindowSum);
             }
 
