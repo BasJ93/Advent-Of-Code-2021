@@ -1,7 +1,6 @@
 using AoC2021.Helpers;
 using AoC2021.Interfaces;
 using System.Linq;
-using Wintellect.PowerCollections;
 
 namespace AoC2021.Implementations
 {
